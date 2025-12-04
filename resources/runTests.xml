@@ -4,7 +4,7 @@
 
     <test name="Run on Firefox">
         <classes>
-            <class name="com.magento.user.User_01_Register_Login"/>
+            <class name="com.magento.user.Level_01_YAGNI_KISS_DRY"/>
         </classes>
     </test>
 
