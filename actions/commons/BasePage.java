@@ -271,4 +271,17 @@ public class BasePage {
     protected void waitForElementClickable(WebDriver driver, String locator) {
         getExplicitWait(driver).until(ExpectedConditions.elementToBeClickable(byXPath(locator)));
     }
+
+    // Custom methods
+    protected void selectOptionInCustomDropDown(WebDriver driver, String dropDown, String allOptionsLocator, String optionValue) {
+        clickElement(driver, dropDown);
+        sleepForSeconds(1);
+        List<WebElement> allOptions = getListWebElement(driver, allOptionsLocator);
+        for (WebElement option : allOptions) {
+            if (option.getText().trim().equals(optionValue)) {
+                option.click();
+                return;
+            }
+        }
+    }
 }
