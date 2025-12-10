@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.AccountDashboardPageObject;
 import pageObjects.HomePageObject;
@@ -20,10 +21,10 @@ public class Level_03_Page_Object_Model extends BaseTest {
     private LoginPageObject loginPage;
     private AccountDashboardPageObject accountDashboardPage;
 
+    @Parameters({"browser", "url"})
     @BeforeClass
-    public void beforeClass() {
-        driver = getWebDriver();
-        driver.get("https://live.techpanda.org/");
+    public void beforeClass(String browserName, String pageUrl) {
+        driver = getWebDriver(browserName, pageUrl);
         homePage = PageGeneratorManager.getHomePage(driver);
 
         firstName = "Dong";
